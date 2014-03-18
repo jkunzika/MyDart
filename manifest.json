@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "MyDart",
+  "description": "This extension centralizes your Dartmouth web resources such as BannerStudent, library, DA$H, class schedule, LaundryView, and more!",
+  "version": "0.0.0.9",
+  "background": { "scripts": ["background.js"] },
+  "icons": { "16": "icon_16.png",
+           "48": "icon.png",
+          "128": "icon_128.png" },
+
+  "author": "Jordan Kunzika",
+  "permissions": [ "storage", "http://*/*",  "tabs", "notifications", "pageCapture", "https://apis.google.com/" , "https://*.google.com/",  "https://banner.dartmouth.edu/*"],
+  
+  
+  "content_security_policy": "script-src 'self' https://*.google.com; object-src 'self'",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "mydartpopup.html"
+  }
+}

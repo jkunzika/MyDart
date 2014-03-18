@@ -1,0 +1,247 @@
+<!doctype html>
+<html ng-app>
+  <head>
+
+    <title>MyDart</title>
+    <style>
+      body {
+        min-width: 600px;
+        min-height: 800px;
+        background-color: #00703C;
+/*         overflow-y: hidden; */
+		overflow-x: hidden;
+
+
+        /* overflow-x: hidden;  */
+
+      }
+
+      h1 {
+      text-shadow: 1px 1px 2px black, 0 0 1em green, 0 0 0.2em green;
+	  color: white;
+      font: 3.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+      text-align: center
+      }
+      
+      h3 {
+      color: #00703C;
+      }
+
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+      
+      ul
+      {
+   		list-style-type: none;
+   		 padding: 0;
+   		 margin: 0;
+      }
+
+      td div {
+
+      background-color: floralwhite;
+      border-radius: 5px;
+      
+      min-width: 200px; 
+      min-height: 50px;
+      margin: 5px 5px 5px 5px;
+      box-shadow: 3px 3px 5px black;
+      text-align: center;
+      line-height: 50px;
+/*       text-indent: 5px; */
+      font-size: 15px;
+
+      }
+      
+      #left {
+      overflow-y: true;
+      background-color: #50C878;
+      }
+      
+      .item{
+    	margin: 3px 3px 3px 3px;
+      
+      }
+      
+      .item:hover {
+          background-color: #50C878;
+      }
+      
+      
+      td{
+      	vertical-align: top;
+      }
+
+
+      a {
+       text-decoration: none
+      }
+      
+      .content:hover {
+      background-color: none
+      }
+      
+      .content {
+      width: 75%;
+/*       min-width: 500px; */
+      min-height: 500px;
+      border-radius: 5px;
+      /* 
+-webkit-transform:scale(.75);
+      -moz-transform-scale(.75);
+ */
+      
+      }
+      
+
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <script src="angular.min.js"></script>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script type="text/javascript" src="mydartpopup.js"></script>
+    <script type="text/javascript" src="fullscreen.js"></script>
+    <script type="text/javascript" src="plusone.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css" />
+
+  </head>
+  <body>
+  <webview src="http://news.google.com/" width="640" height="480"></webview>
+  
+  <table>
+<tr>
+	<td> 
+<!-- 	<div id="left"> -->
+<!-- <div id="frame"> -->
+<div id="Accordion">
+ <h3 id="1">Home</h3>
+  <div>
+    <iframe class="content" seamless='seamless' src="https://m.dartmouth.edu/home/index&amp;output=embed">This app does not support iframes.</iframe>
+
+  </div>
+  <h3 id="2">BannerStudent</h3>
+  <div>
+    <iframe class='content' seamless='seamless' src='https://www.dartmouth.edu/bannerstudent' target='_self'>This app does not support iframes.</iframe>
+  </div>
+  <h3 id="3">Library Resources</h3>
+  <div>
+	<iframe class='content' seamless='seamless' src='http://m.library.dartmouth.edu/' target='_self'>This app does not support iframes.</iframe>
+  </div>
+  <h3 id="4">DA$H, DBA, & Meal Swipes</h3>
+  <div>
+    <iframe class='content' seamless='seamless' src='https://dartmouth.managemyid.com/student/welcome.php'>This app does not support iframes.</iframe>
+  </div>
+  <h3 id="5">Academic Calendar</h3>
+  <div>
+    <iframe class='content' seamless='seamless' src='http://www.dartmouth.edu/~reg/calendar/academic/13-14.html' target='_self'>This app does not support iframes.</iframe>
+  </div>
+  <h3 id="6">Advance Transit</h3>
+  <div>
+	<iframe class='content' seamless='seamless' src='http://www.advancetransit.com/' target='_self'>This app does not support iframes.</iframe>  
+  </div>
+  <!-- 
+<h3 id="8">Blitz</h3>
+  <div>
+	<iframe class='content' seamless='seamless' src='https://bwa.dartmouth.edu' target='_top'>This app does not support iframes.</iframe>
+  </div>
+ -->
+  <h3 id="7">LaundryView</h3>
+  <div>
+	<iframe class='content' seamless='seamless' src='http://m.laundryview.com/' target='_self'>This app does not support iframes.</iframe>
+
+  
+  </div>
+  <!-- 
+<h3 id="8">Blackboard</h3>
+  <div>
+	<iframe class='content' seamless='seamless' src='http://blackboard.dartmouth.edu' target='_self'>This app does not support iframes.</iframe>
+  </div>
+ -->
+
+
+  <!-- 
+<h3 id="10">webview example</h3>
+  <div>
+  <webview src="http://news.google.com/" width="640" height="480"></webview>
+  </div>
+ -->
+
+  		
+
+  		
+  		
+			
+</div>
+</td>
+	<td class="items" href="#" title="That's what this widget is">
+		<ul id="sortable" >
+			<li><h1>MyDart</h1></li>
+			<li><div id="Home" class="item" >Homepage</div></li>
+			<li><div id="Banner" class="item" >BannerStudent</div></li>
+			<li><div id="Library" class="item">Library Resources</div></li>
+
+			
+			<li><div id="DBA" class="item">DA$H, DBA, & Meal Swipes</div></li>
+			<!-- 
+<li><div id="ScheduleWeek" class="item">This Week's Schedule</div></li>
+			<li><div id="ScheduleDetail" class="item">Term-Long Schedule</div></li>
+ -->
+<!-- 			<li><div id="DegreeWorks" class="item">DegreeWorks</div></li> -->
+<!-- 			<li><div id="Google" class="item">Dartmouth @ Google+</div></li> -->
+			<li><div id="Dates" class="item">Academic Calendar</div></li>
+			<li><div id="AT" class="item">Advance Transit Schedule</div></li>
+			
+<!-- 			<li><div id="Dining" class="item">Dartmouth Dining Services (DDS)</div></li> -->
+			<li><div id="LaundryView" class="item">LaundryView</div></li>
+<!-- 			<li><div id="Blackboard" class="item">BlackBoard</div></li> -->
+			<li><!-- Place this code where you want the badge to render. --><div id="Google" class="item">
+<a href="https://plus.google.com/104086588845187162770?prsrc=3"
+   rel="publisher" target="_blank" style="text-decoration:none;display:inline-block;color:#333;text-align:center; font:13px/16px arial,sans-serif;white-space:nowrap;">
+<span style="display:inline-block;font-weight:bold;vertical-align:top;margin-right:2px; margin-top:8px;">Google @ Dartmouth</span><span style="display:inline-block;vertical-align:top;margin-right:0px; margin-top:8px;">on</span>
+<img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
+</a></div></li>
+			<li><center><button id="autoselect" name="Hovering Auto-Select" >Hover Auto-Select: OFF</button></center>
+			<center><button id="tutorial" name="Tutorial" href="#" title="That's what this widget is">Tutorial Tooltips: OFF</button></center>
+						<center><button id="upload" name="Tutorial" href="#" title="That's what this widget is" >Class Schedule Notifications: OFF</button></center>
+
+<!-- 			<center><button id="fullscreen" name="Tutorial" href="#" title="That's what this widget is" >View Fullscreen for More Content!</button></center> -->
+			
+<!-- 			<li><div id="Events" class="item">Campus Events</div></li> -->
+		
+			
+	</td>
+</tr>
+<!-- 
+<tr>
+
+<!~~ 
+ <tr>  
+<td><div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h2>Hello {{yourName}}!</h2>
+    </div></td>  
+ ~~>
+
+
+</tr>
+ -->
+</table>
+
+<!-- <div><br/><strong>Click Me!</strong></div>  -->
+  </body>
+</html>
