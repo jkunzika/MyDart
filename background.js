@@ -153,24 +153,20 @@ function generateScheduleWeekPage() {
     var a = document.getElementById("a[href='/banner/groucho/twbkwbis.P_GenMenu?name=bmenu.Z_UGSMainMenu']");
     a.click();
     if(a){
-	console.log(a)
-	    }
+	console.log(a);
+    }
     
     var b = $("a[href='/banner/groucho/bwskfshd.P_CrseSchd']");
     b.click();
     
     if(b){
-	console.log(b)
-	    }
-    
+	console.log(b);
+    }
     getWeeklySchedule();
     
 };
 
 function getWeeklySchedule() {
-    
-    
-    
     var s = $('#goto_id');
     var date = new Date();
     var dateString = "";
@@ -379,8 +375,6 @@ if(fxCalls % 2 != 0){
     
     //   }
     
-    
-    
 }
 
 };
@@ -430,15 +424,9 @@ function scheduleElement(className,time,location,day,dateRange)
 	case "MTRF":
 	    days = ['Monday','Tuesday','Thursday','Friday'];
 	    break;
-	case "Sa":
-	    days = ['Saturday'];
-	    break;
-	case "Su":
-	    days = ['Sunday']
-		break;
 	default:
-	    days = ['There are no days!']
-		break;
+	    days = ['There are no days!'];
+	    break;
 	}
 	
 	return days;
@@ -541,7 +529,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 		notification.show();
 		
 		
-    
+		
 		
 		// notification_test = window.webkitNotifications.createNotification(
 		//       'icon.png', 'Notification Title', 'Notification content...');
@@ -552,10 +540,6 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 	    else {
 		window.webkitNotifications.requestPermission();
 	    }
-	    
-  		
-	    
-	    
 	    
 	    // Conditionally initialize the options.
 	    if (!localStorage.isInitialized) {

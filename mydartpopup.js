@@ -5,6 +5,9 @@ $(document).ready(function(){
 	console.log("starting up. autoselect is initially on: "+localStorage["autoselect"]);
 	console.log("starting up. tutorial is initially on: "+localStorage["tutorialOn"]);
 	
+
+	// appending tooltips 
+
 	$("#upload").tooltip({content: "Click on this button to upload your class schedule to this app. After this, you will get desktop notifications to remind you about your classes.", track: true});
 	$("#fullscreen").tooltip({content: "Click this button to make the app run in its own larger Chrome tab rather than the popup.", track: true});
 	$("#Accordion").tooltip({content: "You can click on the subheadings in this panel to change them similarly to the list on the right.",track: true});
@@ -13,7 +16,7 @@ $(document).ready(function(){
 		    });
 	$( "#Google").tooltip({ content: "Click on me to go to the official Google @ Dartmouth page!", track: true});
 	// $( "h3 div" ).tooltip({ content: "You can also click on my subheadings to change the content!", track: true         });        
-	
+	// initializing tutorial mode based on option selection
 	
 	if(localStorage["tutorialOn"] == undefined || localStorage["tutorialOn"] == "undefined"){
 	    
@@ -30,8 +33,7 @@ $(document).ready(function(){
 	    //$('*').tooltip('enable');
 	    console.log("tutorial is on");
 	    $('#tutorial').html("Tutorial Tooltips: ON");
-	    
-	    
+	    	    
 	} else if(localStorage["tutorialOn"] == "false") {
 	    $("#upload").tooltip('disable');
 	    $( "#tutorial").tooltip('disable');
@@ -43,6 +45,8 @@ $(document).ready(function(){
 	    console.log("tutorial is off");
 	    $('#tutorial').html("Tutorial Tooltips: OFF");
 	}
+	
+	// initializing auto select feature based on option selection
 	
 	if(localStorage["autoselect"] == undefined){
 	    console.log("autoselect was undefined");
@@ -164,6 +168,8 @@ $(document).ready(function(){
 	}
 	
 	console.log("autoselect is on: "+localStorage["autoselect"]);
+
+	// initializing class schedule notification feature based on option selection
 	
 	if(localStorage["notificationsOn"] == "false" || localStorage["notificationsOn"] == "undefined" || localStorage["notificationsOn"] == undefined ){
 	    $('#upload').html("Class Schedule Notifications: OFF");
@@ -180,6 +186,7 @@ $(document).ready(function(){
 	    console.log("notifications are on");
 	}
 	
+	// enabling autoselect toggle button
 	
 	$('#autoselect').click(function(){
 		console.log("autoselect is on: "+localStorage["autoselect"]);
@@ -303,6 +310,8 @@ $(document).ready(function(){
 	}
 		
 	    });
+
+	// enabling tutorial toggle button
 	
 	$('#tutorial').click(function(){
 		console.log("tutorial is on: "+localStorage["tutorialOn"]);
@@ -335,6 +344,8 @@ $(document).ready(function(){
 	    });
 	
 	$('#tutorial').dblclick();
+
+	// enabling fullscreen toggle button
 	
 	$('#fullscreen').click(function(){
 		var fullscreen = document.createElement('a');
@@ -344,6 +355,8 @@ $(document).ready(function(){
 		fullscreen.click();
 		
 	    });
+	
+	// enabling the class schedule notification feature
 	
 	$('#upload').click(function(){
 		if(localStorage["notificationsOn"] == "false" || localStorage["notificationsOn"] == "undefined" || localStorage["notificationsOn"] == undefined ){
@@ -366,18 +379,15 @@ $(document).ready(function(){
 		    console.log("Schedule Retrieval Status: " + localStorage["getSchedule"]);
 		    
 		}
-		
-		
-		
-		
-		
 	    });
 	
 	var home = $('#frame')[0];
 	var body = $('body table tr td')[0];
 	var currentFrame = home;
+	
 	var blitz = document.createElement('div');
 	blitz.innerHTML = "<iframe class='content' seamless='seamless' src='https://login.microsoftonline.com/login.srf' >This app does not support iframes.</iframe>";
+	
 	var dba  = document.createElement('div');
 	dba.innerHTML = "<iframe class='content' seamless='seamless' src='https://dartmouth.managemyid.com/student/welcome.php'>This app does not support iframes.</iframe>";
 	
@@ -408,6 +418,8 @@ $(document).ready(function(){
 	var iframes = $('iframe');
 	var webviews = $('webview');
 	
+	// when the user's mouse enters the body of the popup, this is when the iframes will load (lazy loading)
+
 	$('body').mouseenter(function() {
 		iframes.attr('src', function() {
 			//$('.items').mouseenter(function(){});
@@ -546,7 +558,6 @@ $(document).ready(function(){
 	function remove(what, fromWhere){
 	    fromWhere.removeChild(what);
 	    return what;
-	    
 	}
 	
 	function add(what, where, addTo) {
