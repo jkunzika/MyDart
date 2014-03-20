@@ -1,6 +1,19 @@
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+Array.prototype.contains = function(obj){
+    var i;
+    for(i = 0; i < this.length; i++)
+	{
+	    if(this[i] == obj)
+		{
+		    return true;
+		}
+	}
+    return false;
+};
+
+
 var classNames = [];
 var classString = "";
 function show() {
@@ -111,12 +124,13 @@ function initBackgroundNotifications(){
 	}
 	for(var i = 0; i< classArray.length; i++){
 	    if(i == 0 || (i >= 1 && classArray[i].className[0] !== classArray[i-1].className[0])){
-    		
-		classNames.push(classArray[i].className[0]);
-    		
+    		if(!classNames.contains(classArray[i].className[0]))
+		    {
+			classNames.push(classArray[i].className[0]);
+		    }
 	    }
     	}
-    	
+	classString = "";    	
     	for(var i = 0; i< classNames.length; i++){
 	    classString += classNames[i];
 	    if(i != classNames.length - 1){
@@ -456,16 +470,27 @@ function scheduleElement(className,time,location,day,dateRange)
 
 var classArray = [];
 
+
 function getScheduleFromStorage(){
     var data = localStorage.schedule.split("|");
     
     classArray = [];
-    
+    classNames = [];
+
     for(var i = 1; i < data.length; i+=2){
     	var currentData = data[i].split(";");
     	var currentClass = new scheduleElement(currentData[0].match(/[A-Z]+ [0-9]+/), currentData[1].match(/[0-9]+:[0-9]{2} [a-z]+/), currentData[2],currentData[3], currentData[4]);
-    	classArray.push(currentClass);
-    	console.log(currentClass.text());
+	classArray.push(currentClass);
+	console.log(currentClass.text());
+	
+	if(classNames.contains(currentClass.className[0]) == false)
+	    {
+		classNames.push(currentClass.className[0]);
+	    }
+	else
+	    {
+		console.log(currentClass.className[0] + " was already added.");
+	    }
     }
     
     
@@ -495,15 +520,18 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 		// function defined in step 2
 		
 		
-		
+		/*
 		for(var i = 0; i< classArray.length; i++){
 		    if(i == 0 || (i >= 1 && classArray[i].className[0] !== classArray[i-1].className[0])){
-    			
-    			classNames.push(classArray[i].className[0]);
-    			
+			if(!classNames.contains(classArray[i].className[0]))
+			   {    			
+			       classNames.push(classArray[i].className[0]);
+			   }
 		    }
 		}
-		
+		*/
+
+		classString = "";
 		for(var i = 0; i< classNames.length; i++){
 		    classString += classNames[i];
 		    if(i != classNames.length - 1){
@@ -511,6 +539,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 		    }
 		    
 		}
+		console.log("schedule save notification should say: " + classString);
 		var notification = webkitNotifications
 		    .createNotification(
 					'icon.png',
